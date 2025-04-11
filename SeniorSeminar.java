@@ -15,6 +15,7 @@ public class SeniorSeminar
 		try {
 			File myObj = new File("CopyOf_SrSeminar_RawData.csv");
 			Scanner myReader = new Scanner(myObj); //for the file inputs
+            myReader.nextLine();
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
 				String[] eachColumn = data.split(",");
@@ -28,10 +29,10 @@ public class SeniorSeminar
 			e.printStackTrace();
 		}
 
-        for (int x = 0; x < 75; x++)
+        for (int x = 0; x < 74; x++)
         {
-            System.out.println(students.get(0).getName());
-            System.out.println(students.get(0).getPick());
+            System.out.println(students.get(x).getName());
+            System.out.println(students.get(x).getPickString());
         }
     }
 }

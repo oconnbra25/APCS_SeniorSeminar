@@ -26,7 +26,7 @@ public class Student {
             return name;
         }
     
-        public String getPick() {
+        public String getPickString() {
             return "Choice 1: " + choice1 + ", " + "Choice 2: " + choice2 + ", " + "Choice 3: " + choice3 + ", " + "Choice 4: " + choice4 + ", " + "Choice 5: " + choice5 + ", ";
         }
     }
