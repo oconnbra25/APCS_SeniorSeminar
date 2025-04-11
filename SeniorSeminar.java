@@ -20,7 +20,7 @@ public class SeniorSeminar
 				String[] eachColumn = data.split(",");
 				Student stu = new Student(eachColumn[0], Integer.parseInt(eachColumn[1]), Integer.parseInt(eachColumn[2]), Integer.parseInt(eachColumn[3]), Integer.parseInt(eachColumn[4]), Integer.parseInt(eachColumn[5]));
 				students.add(stu);
-				System.out.println(data);
+				//System.out.println(data);
 		}
 		myReader.close();
 		} catch (FileNotFoundException e) {
@@ -30,7 +30,8 @@ public class SeniorSeminar
 
         for (int x = 0; x < 75; x++)
         {
-            
+            System.out.println(students.get(0).getName());
+            System.out.println(students.get(0).getPick());
         }
     }
 }
