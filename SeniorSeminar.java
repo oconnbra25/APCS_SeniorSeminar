@@ -29,25 +29,45 @@ public class SeniorSeminar
 			e.printStackTrace();
 		}
 
-		int[] sessions = new int[19];
+		int[] sessionsChoices = new int[19]; //to sort the choices tallies
+		int[] sessionsID = new int[19]; //to hold as a temp to know which tally goes where
 
-        for (int x = 0; x < 74; x++)
+        for (int x = 0; x < 74; x++) //printing out the kids and their choices
         {
             System.out.println(students.get(x).getName());
             System.out.println(students.get(x).getPickString());
         }
 		
-		for (int x = 0; x < 74; x++)
+		for (int x = 0; x < 74; x++) //setting all the tallies
         {
 			for (int y = 0; y < 5; y++)
 			{
-				sessions[students.get(x).getPickInt()[y]] += 1;
+				sessionsChoices[students.get(x).getPickInt()[y]] += 1;
 			}
 		}
 
-		for (int r = 0; r < 20; r++)
+		for (int r = 0; r < 20; r++) //printing out all the tallies
 		{
-			System.out.println("Session" + r + ": " + sessions[r]);
+			System.out.println("Session" + r + ": " + sessionsChoices[r]);
+		}
+
+		for (int z = 1; z < 20; z++) //insertion sort
+		{
+			int x = z - 1;
+			int tempo = sessionsChoices[z];
+			while (x >= 0 && tempo < sessionsChoices[x]) //keeps shifting until tempo is in its place
+			{
+				sessionsChoices[x + 1] = sessionsChoices[x];
+				sessionsID[x + 1] = sessionsID[x];
+				x--;
+			}
+			sessionsChoices[x + 1] = tempo;
+			sessionsID[x + 1] = tempo;
+		}
+
+		for (int r = 0; r < 20; r++) //printing out all the tallies
+		{
+			System.out.println("Session" + sessionsID[r] + ": " + sessionsChoices[r]);
 		}
     }
 }
