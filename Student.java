@@ -29,4 +29,9 @@ public class Student {
         public String getPickString() {
             return "Choice 1: " + choice1 + ", " + "Choice 2: " + choice2 + ", " + "Choice 3: " + choice3 + ", " + "Choice 4: " + choice4 + ", " + "Choice 5: " + choice5 + ", ";
         }
+
+        public int[] getPickInt() {
+            int[] choices = {choice1, choice2, choice3, choice4, choice5};
+            return choices;
+        }
     }

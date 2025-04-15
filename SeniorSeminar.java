@@ -29,10 +29,25 @@ public class SeniorSeminar
 			e.printStackTrace();
 		}
 
+		int[] sessions = new int[19];
+
         for (int x = 0; x < 74; x++)
         {
             System.out.println(students.get(x).getName());
             System.out.println(students.get(x).getPickString());
         }
+		
+		for (int x = 0; x < 74; x++)
+        {
+			for (int y = 0; y < 5; y++)
+			{
+				sessions[students.get(x).getPickInt()[y]] += 1;
+			}
+		}
+
+		for (int r = 0; r < 20; r++)
+		{
+			System.out.println("Session" + r + ": " + sessions[r]);
+		}
     }
 }
