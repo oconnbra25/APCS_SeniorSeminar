@@ -30,7 +30,7 @@ public class SeniorSeminar
 		}
 
 		int[] sessionsChoices = new int[19]; //to sort the choices tallies
-		int[] sessionsID = new int[19]; //to hold as a temp to know which tally goes where
+		int[] sessionsID = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}; //to hold as a temp to know which tally goes where
 
         for (int x = 0; x < 74; x++) //printing out the kids and their choices
         {
@@ -46,15 +46,11 @@ public class SeniorSeminar
 			}
 		}
 
-		for (int r = 0; r < 20; r++) //printing out all the tallies
-		{
-			System.out.println("Session" + r + ": " + sessionsChoices[r]);
-		}
-
-		for (int z = 1; z < 20; z++) //insertion sort
+		for (int z = 1; z < 19; z++) //insertion sort
 		{
 			int x = z - 1;
 			int tempo = sessionsChoices[z];
+			int tempoID = sessionsID[z];
 			while (x >= 0 && tempo < sessionsChoices[x]) //keeps shifting until tempo is in its place
 			{
 				sessionsChoices[x + 1] = sessionsChoices[x];
@@ -62,10 +58,10 @@ public class SeniorSeminar
 				x--;
 			}
 			sessionsChoices[x + 1] = tempo;
-			sessionsID[x + 1] = tempo;
+			sessionsID[x + 1] = tempoID;
 		}
 
-		for (int r = 0; r < 20; r++) //printing out all the tallies
+		for (int r = 0; r < 19; r++) //printing out all the tallies
 		{
 			System.out.println("Session" + sessionsID[r] + ": " + sessionsChoices[r]);
 		}
