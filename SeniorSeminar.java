@@ -2,6 +2,7 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.ArrayList; // Import the ArrayList utilities
+import javax.lang.model.util.ElementScanner14;
 
 public class SeniorSeminar 
 {
@@ -65,5 +66,41 @@ public class SeniorSeminar
 		{
 			System.out.println("Session" + sessionsID[r] + ": " + sessionsChoices[r]);
 		}
-    }
+
+		int[][] schedule = new int[5][5]; //arrayList to hold all the students
+
+		int tempPointer = 18;
+		for (int g = 0; g < 5; g++) //setting up schedule by ranking of total tallies
+		{
+			for (int h = 0; h < 5; h++)
+			{
+				if (sessionsID[tempPointer] == 0)
+				{
+					tempPointer--;
+					schedule[h][g] = sessionsID[tempPointer];
+					tempPointer--;
+				}
+				else if (tempPointer == 0)
+				{
+					tempPointer = 18;
+					schedule[h][g] = sessionsID[tempPointer];
+					tempPointer--;
+				}
+				else
+				{
+					schedule[h][g] = sessionsID[tempPointer];
+					tempPointer--;
+				}
+				
+			}
+		}
+
+		for (int g = 0; g < 5; g++) //test print of schedule
+		{
+			for (int h = 0; h < 5; h++)
+			{
+				System.out.println(schedule[h][g]);
+			}
+		}
+	}
 }
