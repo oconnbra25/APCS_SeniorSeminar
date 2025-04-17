@@ -93,7 +93,7 @@ public class SeniorSeminar
 			}
 		}
 
-		for (int g = 0; g < 5; g++) //test print of schedule
+		for (int g = 0; g < 5; g++) //printing schedule
 		{
 			for (int h = 0; h < 5; h++)
 			{
