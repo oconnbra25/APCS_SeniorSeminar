@@ -82,9 +82,8 @@ public class SeniorSeminar
 				}
 				else if (tempPointer == 0)
 				{
-					tempPointer = 18;
 					schedule[h][g] = sessionsID[tempPointer];
-					tempPointer--;
+					tempPointer = 18;
 				}
 				else
 				{
