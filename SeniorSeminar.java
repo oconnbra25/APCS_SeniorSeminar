@@ -93,11 +93,33 @@ public class SeniorSeminar
 			}
 		}
 
-		for (int g = 0; g < 5; g++) //printing schedule
+		ArrayList<Session> sessions = new ArrayList<Session>(); //list for sessions
+		for (int g = 0; g < 5; g++) //creating sessions
 		{
 			for (int h = 0; h < 5; h++)
 			{
-				System.out.println(schedule[h][g]);
+				if ((g == 3 && h < 2) || (g > 3))
+				{
+					Session String.valueOf(schedule[h][g] * 20) = new Session(h, g);
+				}
+				//System.out.println(schedule[h][g]);
+			}
+		}
+
+		for (int c = 0; c < 74; c++) //adding students to the schedule
+		{
+			for (int a = 0; a < 5; a++) //iterating through the schedule
+			{
+				int tempTime = 0; //to hold which row
+				for (int s = 0; s < 5; s++) //iterating through the choices
+				{
+					if (schedule[tempTime][a] == students.get(c).getPickInt()[s])
+					{
+						
+					}
+				}
+				
+				
 			}
 		}
 	}

@@ -5,16 +5,19 @@ import java.util.ArrayList; // Import the ArrayList utilities
 
 public class Session {
 
-    private int seshID;
     private int time;
     private int room;
 
-    public Session (int sessionID, int timeSlot, int roomNum)
+    public Session (int timeSlot, int roomNum)
     {
-        seshID = sessionID;
         time = timeSlot;
         room = roomNum;
     }
 
     ArrayList<Student> attendees = new ArrayList<Student>();
+
+    public void addStudent(Student attend)
+    {
+        attendees.add(attend);
+    }
 }
