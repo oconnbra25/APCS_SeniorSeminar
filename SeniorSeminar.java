@@ -123,36 +123,42 @@ public class SeniorSeminar
 					{
 						students.get(c).setPickInt(0);
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 					else if (schedule[a][s] == students.get(c).getPickInt()[1])
 					{
 						students.get(c).setPickInt(1);
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 					else if (schedule[a][s] == students.get(c).getPickInt()[2])
 					{
 						students.get(c).setPickInt(2);
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 					else if (schedule[a][s] == students.get(c).getPickInt()[3])
 					{
 						students.get(c).setPickInt(3);
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 					else if (schedule[a][s] == students.get(c).getPickInt()[4])
 					{
 						students.get(c).setPickInt(4);
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 
 					if (s == 4) //will just place the student in the last session during that time slot if their choice doesn't exist during that time slot
 					{
 						students.get(c).setSession(sessions.get((s * 5 + a)));
+						sessions.get((s * 5 + a)).addStudent(students.get(c));
 						break;
 					}
 				}
@@ -160,6 +166,6 @@ public class SeniorSeminar
 		}
 
 		//printing out all the classes
-		
+
 	}
 }
