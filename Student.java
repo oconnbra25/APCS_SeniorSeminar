@@ -1,12 +1,17 @@
+import java.util.ArrayList;
+
 public class Student {
 
     //instance variables
-        private String name;
+        final private String name;
         private int choice1;
         private int choice2;
         private int choice3;
         private int choice4;
         private int choice5;
+        ArrayList<Session> schedule = new ArrayList<Session>();
+        private int[] choices = new int[5];
+        
         
     //constructor	
         public Student (String attName, int choiceOne, int choiceTwo, int choiceThree, int choiceFour, int choiceFive)
@@ -17,6 +22,11 @@ public class Student {
             choice3 = choiceThree;
             choice4 = choiceFour;
             choice5 = choiceFive;
+            choices[0] = choice1;
+            choices[1] = choice2;
+            choices[2] = choice3;   //these are here to later return the array list of choices all in one go and also to find which picks have been fixed
+            choices[3] = choice4;
+            choices[4] = choice5;
         }
         
     //getters and setters
@@ -31,7 +41,14 @@ public class Student {
         }
 
         public int[] getPickInt() {
-            int[] choices = {choice1, choice2, choice3, choice4, choice5};
             return choices;
+        }
+
+        public void setSession(Session temp) {
+            schedule.add(temp);
+        }
+
+        public void setPickInt(int place) { //zero is a placeholder to show which sessions a student got that they picked
+            choices[place] = 0;
         }
     }

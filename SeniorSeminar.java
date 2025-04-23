@@ -2,6 +2,7 @@ import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.util.ArrayList; // Import the ArrayList utilities
+import javax.lang.model.util.ElementScanner14;
 
 public class SeniorSeminar 
 {
@@ -32,12 +33,14 @@ public class SeniorSeminar
 		int[] sessionsChoices = new int[19]; //to sort the choices tallies
 		int[] sessionsID = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18}; //to hold as a temp to know which tally goes where
 
+		/*
         for (int x = 0; x < 74; x++) //printing out the kids and their choices
         {
             System.out.println(students.get(x).getName());
             System.out.println(students.get(x).getPickString());
         }
-		
+		*/
+
 		for (int x = 0; x < 74; x++) //setting all the tallies
         {
 			for (int y = 0; y < 5; y++)
@@ -61,10 +64,12 @@ public class SeniorSeminar
 			sessionsID[x + 1] = tempoID;
 		}
 
+		/*
 		for (int r = 0; r < 19; r++) //printing out all the tallies
 		{
 			System.out.println("Session" + sessionsID[r] + ": " + sessionsChoices[r]);
 		}
+		*/
 
 		int[][] schedule = new int[5][5]; //arrayList to hold all the students
 
@@ -98,29 +103,63 @@ public class SeniorSeminar
 		{
 			for (int h = 0; h < 5; h++)
 			{
-				if ((g == 3 && h < 2) || (g > 3))
-				{
-					Session String.valueOf(schedule[h][g] * 20) = new Session(h, g);
-				}
-				//System.out.println(schedule[h][g]);
+				Session placeholder = new Session(g, h, schedule[g][h]);
+				sessions.add(placeholder);
 			}
 		}
 
 		for (int c = 0; c < 74; c++) //adding students to the schedule
 		{
-			for (int a = 0; a < 5; a++) //iterating through the schedule
+			for (int a = 0; a < 5; a++) //going down each row to add one class per time slot
 			{
-				int tempTime = 0; //to hold which row
-				for (int s = 0; s < 5; s++) //iterating through the choices
+				for (int s = 0; s < 5; s++) //going through each classroom to see if there is a session open that is a choice
 				{
-					if (schedule[tempTime][a] == students.get(c).getPickInt()[s])
+					//this checker below finds the int value of the session occuring at the time slot we are looking at
+					//then it finds the next student with the array list of students and also gets their pick
+					//then if it is true it will set the current pick to 0 so:
+					//1, it cant be chosen again
+					//2, it will add to the value of sessions that the student chose and got
+					if (schedule[a][s] == students.get(c).getPickInt()[0]) 
 					{
-						
+						students.get(c).setPickInt(0);
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
+					}
+					else if (schedule[a][s] == students.get(c).getPickInt()[1])
+					{
+						students.get(c).setPickInt(1);
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
+					}
+					else if (schedule[a][s] == students.get(c).getPickInt()[2])
+					{
+						students.get(c).setPickInt(2);
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
+					}
+					else if (schedule[a][s] == students.get(c).getPickInt()[3])
+					{
+						students.get(c).setPickInt(3);
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
+					}
+					else if (schedule[a][s] == students.get(c).getPickInt()[4])
+					{
+						students.get(c).setPickInt(4);
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
+					}
+
+					if (s == 4) //will just place the student in the last session during that time slot if their choice doesn't exist during that time slot
+					{
+						students.get(c).setSession(sessions.get((s * 5 + a)));
+						break;
 					}
 				}
-				
-				
 			}
 		}
+
+		//printing out all the classes
+		
 	}
 }

@@ -7,11 +7,13 @@ public class Session {
 
     private int time;
     private int room;
+    private int seshID;
 
-    public Session (int timeSlot, int roomNum)
+    public Session (int timeSlot, int roomNum, int ID)
     {
         time = timeSlot;
         room = roomNum;
+        seshID = ID;
     }
 
     ArrayList<Student> attendees = new ArrayList<Student>();
@@ -19,5 +21,9 @@ public class Session {
     public void addStudent(Student attend)
     {
         attendees.add(attend);
+    }
+
+    public int getID() {
+        return seshID;
     }
 }
